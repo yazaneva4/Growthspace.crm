@@ -28,19 +28,19 @@ export default function MarketUpdatesPage() {
         <p className="text-sm font-medium text-emerald-700">Verified public sources</p>
         <h1 className="mt-1 text-3xl font-bold">Market updates</h1>
         <p className="mt-2 text-sm text-slate-500">
-          Saudi workforce intelligence verified 16 October 2026; older technology updates are retained below for reference.
+          Saudi workforce intelligence verified 25 October 2026; older technology updates are retained below for reference.
         </p>
       </header>
 
       <section aria-labelledby="growthspace-intelligence" className="space-y-4">
         <div>
           <h2 id="growthspace-intelligence" className="text-xl font-semibold">GrowthSpace · Saudi market intelligence</h2>
-          <p className="mt-1 text-sm text-slate-500">Verified 16 October 2026 · Source dates shown below · <a className="text-emerald-700 underline" href="https://github.com/yazaneva4/GrowthSpace/blob/claude/growthspace-saudi-int7vg/intelligence/reports/2026-10-16.md">Full dated report</a></p>
+          <p className="mt-1 text-sm text-slate-500">Verified 25 October 2026 · Source publication dates shown below · <a className="text-emerald-700 underline" href="https://github.com/yazaneva4/Growthspace.crm/blob/claude/growth-inspector-saudi-int7vg/intelligence/reports/2026-10-25.md">Full dated report</a></p>
         </div>
         {[
-          { date: "2026-10-15", title: "Saudi-based finance staff shift to remote work", change: "Reuters sources report temporary work-from-home arrangements at international financial firms amid security concerns.", impact: "GrowthSpace should offer remote training continuity and flexible rescheduling.", source: "Reuters via Dawn", href: "https://www.dawn.com/news/2037376/attacks-in-saudi-arabia-prompt-finance-firms-to-let-staff-work-from-home-sources-say" },
-          { date: "2026-10-13", title: "FII hybrid participation planned; Misk forum cancelled", change: "Reuters sources describe plans for remote FII attendance; organizers had not confirmed the final hybrid format. The Misk Global Forum will not proceed this year.", impact: "Hybrid-ready executive programs reduce delivery disruption.", source: "Reuters", href: "https://www.reuters.com/world/middle-east/saudi-arabia-plans-hybrid-format-marquee-fii-conference-after-attacks-sources-2026-10-13/" },
-          { date: "2026-10-04", title: "SAP highlights skills-based HR and AI workforce readiness", change: "SAP HR Connect highlighted AI-enabled HR and workforce planning, citing an earlier commissioned survey: 54% large-scale upskilling and 52% role-specific training among surveyed Saudi IT decision-makers.", impact: "Test outcome-based AI leadership and role-specific training. Survey figures are not nationwide employer statistics.", source: "SAP MENA", href: "https://news.sap.com/mena/2026/10/business-ai-takes-center-stage-as-saudi-organizations-advancehr-transformation-at-sap-hr-connect-ksa-2026/" },
+          { date: "2026-10-19", title: "HRSD reports progress in the Skills Accelerator", change: "HRSD reports 590+ training programs across 10+ priority sectors and 44,000+ trainees enrolled in AI skills training. Its target is to develop skills for more than 300,000 beneficiaries; the next phase includes sector skills surveys and stronger outcome measurement.", impact: "Develop practical AI leadership and role-specific learning with measurable workplace outcomes. Treat 300,000 as a target, not a completed count.", source: "Saudi Press Agency", href: "https://www.spa.gov.sa/en/N2705101" },
+          { date: "2026-10-19", title: "Saudi EXIM launches an export business accelerator for 50 enterprises", change: "A program running 18 October–17 December combines specialized consultations, training, and networking to help enterprises prepare for international markets and understand export financing and insurance.", impact: "Explore export-readiness and commercial-leadership workshops for SMEs; this announcement does not mean procurement is open.", source: "Saudi Press Agency", href: "https://www.spa.gov.sa/en/N2705064" },
+          { date: "2026-10-19", title: "Future Investment Initiative postponed until 2027", change: "Organizers postponed FII, scheduled for 26–29 October 2026, until 2027. A replacement date was not announced in the cited report; this supersedes earlier hybrid-format plans.", impact: "Reconfirm conference-linked executive meetings and training commitments, and retain hybrid delivery options. This is a scheduling change, not evidence of reduced training demand.", source: "Reuters", href: "https://www.reuters.com/world/middle-east/saudi-fii-postpones-flagship-conference-until-2027-2026-10-19/" },
         ].map((item) => (
           <article key={item.title} className="rounded-2xl border border-emerald-200 bg-white p-5">
             <time dateTime={item.date} className="text-xs text-slate-500">{item.date} · {item.source}</time>
@@ -51,7 +51,7 @@ export default function MarketUpdatesPage() {
           </article>
         ))}
         <div className="rounded-xl bg-emerald-50 p-4 text-sm text-emerald-950">
-          <strong>Top 3 actions:</strong> (1) Offer hybrid delivery options; (2) pilot practical AI leadership training; (3) monitor event-format confirmations before long-term changes.
+          <strong>Top 3 actions:</strong> (1) Test measurable applied-AI leadership training; (2) validate SME export-readiness learning demand; (3) reschedule FII-linked plans and retain hybrid delivery.
         </div>
       </section>
 
