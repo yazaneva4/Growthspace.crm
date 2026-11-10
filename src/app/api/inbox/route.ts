@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase/server";
 import { handleInbound } from "@/lib/orchestrator";
 import { AIUnavailableError } from "@/lib/ai/responder";
+import { tooManyRequests } from "@/lib/rate-limit";
 
 export const maxDuration = 30;
 
@@ -15,8 +16,16 @@ export const maxDuration = 30;
  * service-role client. The browser never receives that key.
  */
 export async function POST(req: NextRequest) {
+  // No session is required here (the dashboard simulator is usable in the demo
+  // workspace), so throttle per client: every call writes rows and spends AI.
+  if (tooManyRequests(req, "inbox", 30)) {
+    return NextResponse.json(
+      { error: "Too many messages, please wait a moment." },
+      { status: 429, headers: { "Retry-After": "60" } }
+    );
+  }
   const body = await req.json().catch(() => null);
-  const message = requestText(body?.message);
+  const message = requestText(body?.message).slice(0, 4000);
   if (!message?.trim()) return NextResponse.json({ error: "message required" }, { status: 400 });
 
   const channel: "email" | "sandbox" = body?.channel === "email" ? "email" : "sandbox";

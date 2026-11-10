@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { createServiceClient, serviceKeyConfigured } from "@/lib/supabase/server";
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "@/lib/supabase/config";
+import { tooManyRequests } from "@/lib/rate-limit";
 
 /**
  * Self-healing for any account stuck unconfirmed (e.g. created before the
@@ -14,6 +15,10 @@ import { SUPABASE_URL, SUPABASE_ANON_KEY } from "@/lib/supabase/config";
  * don't control. Requires SUPABASE_SERVICE_ROLE_KEY; no-ops otherwise.
  */
 export async function POST(req: NextRequest) {
+  // Each call verifies a password, so cap the guessing rate per client.
+  if (tooManyRequests(req, "force-confirm", 10)) {
+    return NextResponse.json({ fixed: false, error: "Too many attempts" }, { status: 429 });
+  }
   if (!serviceKeyConfigured()) {
     return NextResponse.json({ fixed: false });
   }

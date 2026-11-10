@@ -2,6 +2,7 @@ import { requestText } from "@/lib/request-input";
 import { NextRequest, NextResponse } from "next/server";
 import { respondBestAvailable, AIUnavailableError } from "@/lib/ai/responder";
 import type { BrandVoice, ReplyMode } from "@/lib/types";
+import { tooManyRequests } from "@/lib/rate-limit";
 
 // Allow up to 30s for the AI call (and any fallback tiers) so a slow provider
 // doesn't get killed early and surface as a "crash" to the user.
@@ -26,8 +27,14 @@ const DEMO_VOICE: BrandVoice = {
 };
 
 export async function POST(req: NextRequest) {
+  if (tooManyRequests(req, "simulate", 20)) {
+    return NextResponse.json(
+      { error: "Too many messages, please wait a moment." },
+      { status: 429, headers: { "Retry-After": "60" } }
+    );
+  }
   const body = await req.json().catch(() => null);
-  const message = requestText(body?.message);
+  const message = requestText(body?.message).slice(0, 2000);
   if (!message?.trim()) {
     return NextResponse.json({ error: "message required" }, { status: 400 });
   }
