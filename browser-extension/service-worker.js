@@ -7,7 +7,7 @@ const APPS = {
   messages: { label: "Messages", url: "https://messages.google.com/web/" },
   calls: { label: "Calls", url: "https://growthspace.sa/" },
 };
-const POLICY_URL = "https://growthspaceksa.vercel.app/api/agent/browser";
+const POLICY_URL = "https://growthspacecrm.vercel.app/api/agent/browser";
 
 function allowedHost(url) {
   try {
@@ -17,7 +17,7 @@ function allowedHost(url) {
 }
 
 async function policy() {
-  const tabs = await chrome.tabs.query({ url: ["https://growthspaceksa.vercel.app/*"] });
+  const tabs = await chrome.tabs.query({ url: ["https://growthspacecrm.vercel.app/*"] });
   const tab = tabs[0];
   if (!tab?.id) throw new Error("Open GrowthSpace and sign in first.");
   return new Promise((resolve, reject) => {

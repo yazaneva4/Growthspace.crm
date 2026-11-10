@@ -15,7 +15,7 @@ function allowedOrigins(requestOrigin: string): Set<string> {
     process.env.NEXT_PUBLIC_SITE_URL,
     process.env.GROWTHSPACE_SITE_URL,
     process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
-    "https://growthspaceksa.vercel.app",
+    "https://growthspacecrm.vercel.app",
     "https://growthspace.sa",
     "https://www.growthspace.sa",
   ];

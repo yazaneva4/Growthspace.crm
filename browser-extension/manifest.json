@@ -9,7 +9,7 @@
     "activeTab"
   ],
   "host_permissions": [
-    "https://growthspaceksa.vercel.app/*",
+    "https://growthspacecrm.vercel.app/*",
     "https://growthspace.sa/*",
     "https://*.growthspace.sa/*",
     "https://mail.google.com/*",
@@ -29,7 +29,7 @@
   "content_scripts": [
     {
       "matches": [
-        "https://growthspaceksa.vercel.app/*",
+        "https://growthspacecrm.vercel.app/*",
         "https://growthspace.sa/*",
         "https://*.growthspace.sa/*",
         "https://mail.google.com/*",

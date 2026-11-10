@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
       else console.error("Magic-link Supabase delivery failed:", detail.trim());
       return NextResponse.json({ error: "We could not send the sign-in link right now. Please try again." }, { status: 503, headers: { "Cache-Control": "no-store" } });
     }
-    const origin = (process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://growthspaceksa.vercel.app").replace(/\/$/, "");
+    const origin = (process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://growthspacecrm.vercel.app").replace(/\/$/, "");
     const redirectTo = new URL("/auth/callback?next=/dashboard/inbox", origin).toString();
     const supabase = createServiceClient();
     const { data, error } = await supabase.auth.admin.generateLink({ type: "magiclink", email, options: { redirectTo } });

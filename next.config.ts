@@ -15,6 +15,7 @@ const securityHeaders = [
 ];
 
 const retiredVercelHosts = [
+  "growthspaceksa.vercel.app",
   "growthspace-ksa.vercel.app",
   "growth-inspector.vercel.app",
   "growthspace-yazaneva4-3470s-projects.vercel.app",
@@ -33,7 +34,7 @@ const nextConfig: NextConfig = {
     return retiredVercelHosts.map((hostname) => ({
       source: "/:path*",
       has: [{ type: "host" as const, value: hostname }],
-      destination: "https://growthspaceksa.vercel.app/:path*",
+      destination: "https://growthspacecrm.vercel.app/:path*",
       permanent: true,
     }));
   },

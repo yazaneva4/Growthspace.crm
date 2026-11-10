@@ -2,7 +2,7 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 import { sendEmail } from "@/lib/email/send";
 
 export const runtime = "nodejs";
-const PRODUCTION_APP_URL = "https://growthspaceksa.vercel.app";
+const PRODUCTION_APP_URL = "https://growthspacecrm.vercel.app";
 
 function secretBytes() {
   const raw = process.env.AUTH_EMAIL_HOOK_SECRET;

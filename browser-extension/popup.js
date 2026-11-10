@@ -13,7 +13,7 @@ for (const [id, label] of apps) {
     if (!result?.ok) status.className = "status error";
   }); root.append(button);
 }
-chrome.tabs.query({ url: ["https://growthspaceksa.vercel.app/*"] }).then(async (tabs) => {
+chrome.tabs.query({ url: ["https://growthspacecrm.vercel.app/*"] }).then(async (tabs) => {
   if (!tabs[0]?.id) throw new Error("Open GrowthSpace and sign in first.");
   return chrome.tabs.sendMessage(tabs[0].id, { type: "get-browser-policy" });
 })

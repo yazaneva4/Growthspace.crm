@@ -1,6 +1,6 @@
 # Deploying GrowthSpace to Vercel
 
-> The existing GitHub repo is `yazaneva4/Growth-Inspector` until the repository is renamed in GitHub Settings. The production site is https://growthspaceksa.vercel.app.
+> The existing GitHub repo is `yazaneva4/Growth-Inspector` until the repository is renamed in GitHub Settings. The production site is https://growthspacecrm.vercel.app.
 
 The app is build-ready. Deployment needs your Vercel account (it can't be done
 from the agent sandbox — no Vercel auth token here).

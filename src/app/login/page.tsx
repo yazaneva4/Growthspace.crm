@@ -13,7 +13,7 @@ type Mode = "signin" | "signup";
 type Step = "email" | "method" | "security";
 const googleEnabled = process.env.NEXT_PUBLIC_GOOGLE_ENABLED === "true";
 const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
-const PRODUCTION_APP_URL = "https://growthspaceksa.vercel.app";
+const PRODUCTION_APP_URL = "https://growthspacecrm.vercel.app";
 
 function origin() { return typeof window === "undefined" ? PRODUCTION_APP_URL : window.location.origin; }
 
